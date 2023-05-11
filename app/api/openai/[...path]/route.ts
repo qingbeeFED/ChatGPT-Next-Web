@@ -68,6 +68,7 @@ async function handle(
       const res = new Response(stream);
       res.headers.set("Content-Type", contentType);
       res.headers.set("Connection", "keep-alive");
+      // https://github.com/vercel/next.js/issues/9965#issuecomment-572744185
       res.headers.set("Content-Encoding", "none");
       return res;
     }
