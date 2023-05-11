@@ -67,6 +67,8 @@ async function handle(
       const stream = await createStream(api);
       const res = new Response(stream);
       res.headers.set("Content-Type", contentType);
+      res.headers.set("Connection", "keep-alive");
+      res.headers.set("Content-Encoding", "none");
       return res;
     }
 
